@@ -1,0 +1,28 @@
+.conCard{
+    display: flex;
+    justify-content:start;
+    flex-wrap: wrap;
+    margin: 0 30px;
+    border-top: 2px solid #EAEAEA ;
+    padding-top: 20px;
+    width: 1100px;
+}
+.conCard .card{
+    width: 250px;
+    height: 350px;
+    margin: 10px 10px;
+
+}
+.conCard .card img{
+    width: 100%;
+    height: 50%;
+}
+.conCard .card p{
+    color: #FF6F00;
+    font-weight: bold;
+    margin: 0;
+}
+
+.conCard .card h3{
+    margin: 10px 0;
+}
