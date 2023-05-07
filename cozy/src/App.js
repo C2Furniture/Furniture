@@ -1,8 +1,11 @@
-
 import "./pages/styles files/App.css";
-
+import Filter from "./pages/Products/Filter";
 function App() {
-  return <div>test</div>;
+  return (
+    <>
+ <Filter/>  
+    </>
+  );
 }
 
 export default App;
