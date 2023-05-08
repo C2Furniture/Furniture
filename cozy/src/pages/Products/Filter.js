@@ -22,7 +22,7 @@ function Filter() {
 
   return (
     <>
-    <div className="container">
+    <div className="containe">
         <div className="filterCon">
           <h4 className="title">Filter By</h4>
           <div className="category">
@@ -35,7 +35,7 @@ function Filter() {
             ))}
           </div>
 
-          <div className="category">
+          {/* <div className="category">
           <p>category</p>
             {checkList.map((item, index) => (
               <div key={index}>
@@ -63,7 +63,7 @@ function Filter() {
                 <span >{item}</span>
               </div>
             ))}
-          </div>
+          </div> */}
 
         </div>
 
