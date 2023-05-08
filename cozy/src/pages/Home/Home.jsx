@@ -36,12 +36,10 @@ const Home = () => {
                 <p className="hero__subtitle">Trending Product in 2023</p>
                 <h2>Make Your Interior More Minimalistic & Modern</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aperiam, tempora voluptates. Laborum pariatur, delectus
-                  reiciendis amet doloribus quisquam expedita tenetur!
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like
                 </p>
                 <motion.button whileTap={{ scale: 1.2 }} className="buy__btn">
-                  <Link to="shop">SHOP NOW</Link>
+                  <Link to="/products">SHOP NOW</Link>
                 </motion.button>
               </div>
             </Col>
@@ -77,7 +75,7 @@ const Home = () => {
                 whileTap={{ scale: 1.2 }}
                 className="buy__btn store__btn"
               >
-                <Link to="/shop">Visit Store</Link>
+                <Link to="/products">Visit Store</Link>
               </motion.button>
             </Col>
             <Col lg="6" md="6" className="text-end counter__img">

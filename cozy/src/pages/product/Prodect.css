@@ -1,5 +1,5 @@
 .prodect0{
-background:url("../assets/HERO5.png") center no-repeat ;
+background:url("./HERO5.png") center no-repeat ;
 font-family: 'Alexandria', sans-serif;
 background-size: cover;
 width: 100%;
@@ -10,12 +10,12 @@ overflow: hidden;
 margin-top: 11px;
 }
 
-section .row{
+.prodect0 .row{
 margin: 100px 0px;
 
 }
 
-section p{
+.prodect0 p{
 color: rgb(255, 253, 253);
 font-size: 25px;
 margin: 10px 0px;
@@ -68,7 +68,7 @@ td{
 }
 
 
-button{
+.prodect button{
 
   background-color: #fff;
 
@@ -144,7 +144,7 @@ margin-left:8px;
 
 
 }
-input{
+.product input{
   /* margin-top:55px; */
   width:89px;
   height:74px;
@@ -156,7 +156,7 @@ font-weight: bold;
 text-align: center;
 }
 
-input:hover{
+.product input:hover{
   color:orange;
   font-size:32px;
 }

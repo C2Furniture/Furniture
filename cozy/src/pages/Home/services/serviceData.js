@@ -9,25 +9,25 @@ const serviceData = [
   {
     icon: <FiTruck />,
     title: "Free Shipping",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: " inside Jordan.",
     bg: "#fdefe6",
   },
   {
     icon: <RiRefreshLine />,
     title: "Easy Returns",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Money Back Garantee.",
     bg: "#ceebe9",
   },
   {
     icon: <RiSecurePaymentLine />,
     title: "Secure Payment",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Cash on delivery payment.",
     bg: "#e2f2b2",
   },
   {
     icon: <MdCurrencyExchange />,
     title: " Back Guarantee",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Easy Replacement.",
     bg: "#d6e5fb",
   },
 ];
