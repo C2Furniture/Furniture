@@ -1,6 +1,8 @@
 import React from "react";
 import "./About.css";
 import Malak from "./Images/malak.jpeg";
+import abood from "./Images/246831204_4478374352277316_8270618522181539930_n.jpg"
+import imgTeam from "./Images/Portrait_Placeholder.png"
 
 import { FaCarSide, FaHandHoldingUsd, FaMedal } from "react-icons/fa";
 
@@ -75,7 +77,7 @@ const About = () => {
 
       <div className="card-group about">
         <div className="card ">
-          <img className="card-img-top imgAbout" src={Malak} title="img" />
+          <img className="card-img-top imgAbout" src={imgTeam} title="img" />
           <div className="card-body">
             <h5 style={{ fontSize: "25px" }} className="card-title">
               Malak Al-farwan
@@ -86,10 +88,32 @@ const About = () => {
           </div>
         </div>
         <div className="card">
-          <img className="card-img-top imgAbout" src={Malak} title="img" />
+          <img className="card-img-top imgAbout" src={imgTeam} title="img" />
           <div className="card-body">
             <h5 style={{ fontSize: "25px" }} className="card-title">
-              Card title
+            Abdalrahman Drobi
+            </h5>
+            <p className="card-text" style={{ fontSize: "24px" }}>
+              avdalrahman.drobi@gmail.com
+            </p>
+          </div>
+        </div>
+        <div className="card">
+          <img className="card-img-top imgAbout" src={abood} title="img" />
+          <div className="card-body">
+            <h5 style={{ fontSize: "25px" }} className="card-title">
+            Abdulrahman Al-haleme
+            </h5>
+            <p className="card-text" style={{ fontSize: "24px" }}>
+            abdulrahman.alhaleme@gmail.com
+            </p>
+          </div>
+        </div>
+        <div className="card">
+          <img className="card-img-top imgAbout" src={imgTeam} title="img" />
+          <div className="card-body">
+            <h5 style={{ fontSize: "25px" }} className="card-title">
+            Hind Hudeib
             </h5>
             <p className="card-text" style={{ fontSize: "24px" }}>
               alfarwanmalak@gmail.com
@@ -97,32 +121,10 @@ const About = () => {
           </div>
         </div>
         <div className="card">
-          <img className="card-img-top imgAbout" src={Malak} title="img" />
+          <img className="card-img-top imgAbout" src={imgTeam} title="img" />
           <div className="card-body">
             <h5 style={{ fontSize: "25px" }} className="card-title">
-              Card title
-            </h5>
-            <p className="card-text" style={{ fontSize: "24px" }}>
-              alfarwanmalak@gmail.com
-            </p>
-          </div>
-        </div>
-        <div className="card">
-          <img className="card-img-top imgAbout" src={Malak} title="img" />
-          <div className="card-body">
-            <h5 style={{ fontSize: "25px" }} className="card-title">
-              Card title
-            </h5>
-            <p className="card-text" style={{ fontSize: "24px" }}>
-              alfarwanmalak@gmail.com
-            </p>
-          </div>
-        </div>
-        <div className="card">
-          <img className="card-img-top imgAbout" src={Malak} title="img" />
-          <div className="card-body">
-            <h5 style={{ fontSize: "25px" }} className="card-title">
-              Card title
+            Ahmad Badran
             </h5>
             <p className="card-text" style={{ fontSize: "24px" }}>
               alfarwanmalak@gmail.com
