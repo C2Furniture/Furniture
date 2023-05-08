@@ -6,7 +6,9 @@ a {
 a:hover {
   text-decoration: none !important;
 }
-
+.form-block {
+  border-radius: 2%;
+}
 .content {
   padding: 7rem 0;
 }

@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #a7a6a68b;
+  background-color: #faf7f5;
 }
 
 .navbar-nav {
@@ -62,4 +62,10 @@
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+.logoutBtn {
+  padding: 1rem;
+  background: transparent;
+  border: none;
 }

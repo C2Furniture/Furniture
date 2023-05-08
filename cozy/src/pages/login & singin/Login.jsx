@@ -1,7 +1,26 @@
 import "../styles files/login.css";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, json, useNavigate } from "react-router-dom";
+import { GoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
+const client_id =
+  "928488147008-b5nobd5nfm448iuodhlqg46tor6c7htm.apps.googleusercontent.com";
+
 const Login = () => {
+  useEffect(() => {
+    function start() {
+      gapi.client
+        .init({
+          client_id: client_id,
+          scope: "https://www.googleapis.com/auth/calendar",
+        })
+        .then(function () {
+          console.log("Google API client initialized");
+        });
+    }
+    gapi.load("client:auth2", start);
+  });
+
   const [userInputs, setUserInputs] = useState({
     userEmail: "",
     userPass: "",
@@ -29,6 +48,15 @@ const Login = () => {
     setUserInputs({ ...userInputs, [e.target.name]: e.target.value });
   };
 
+  const onSuccess = (res) => {
+    console.log("Login success ! current user : ", res.profileObj);
+    localStorage.setItem("userInputs", JSON.stringify(res.profileObj));
+    navigate("/Home");
+  };
+
+  const onFailure = (res) => {
+    console.log("Login Failed ! res: ", res);
+  };
   return (
     <>
       <div className="half ">
@@ -43,6 +71,16 @@ const Login = () => {
                       Login to <strong>COZY</strong>
                     </h3>
                   </div>
+                  <div className="text-center">
+                    <GoogleLogin
+                      clientId={client_id}
+                      buttonText="Login with google"
+                      onSuccess={onSuccess}
+                      onFailure={onFailure}
+                      cookiePolicy={"single_host_origin"}
+                    />
+                  </div>
+
                   <form action="#" method="post" onSubmit={handleSubmit}>
                     <div className="input-container mt-5 mb-5">
                       <input
@@ -74,15 +112,7 @@ const Login = () => {
                       </label>
                       <div className="underline"></div>
                     </div>
-
-                    <div className="d-sm-flex mb-5 align-items-center">
-                      <span className="ml-auto">
-                        <a href="#" className="forgot-pass">
-                          Forgot Password
-                        </a>
-                      </span>
-                    </div>
-                    <button className="uiverse-btn " type="submit">
+                    <button className="uiverse-btn mt-5" type="submit">
                       <span className="hover-underline-animation">Login</span>
                       <svg
                         viewBox="0 0 46 16"

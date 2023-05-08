@@ -1,9 +1,25 @@
 import React from "react";
 import "../styles files/login.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { GoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
+const client_id =
+  "928488147008-b5nobd5nfm448iuodhlqg46tor6c7htm.apps.googleusercontent.com";
 const SingnUp = () => {
+  useEffect(() => {
+    function start() {
+      gapi.client
+        .init({
+          client_id: client_id,
+          scope: "https://www.googleapis.com/auth/calendar",
+        })
+        .then(function () {
+          console.log("Google API client initialized");
+        });
+    }
+    gapi.load("client:auth2", start);
+  });
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token :" + response.credential);
   }
@@ -29,6 +45,15 @@ const SingnUp = () => {
   };
 
   console.log(userInputs);
+  const onSuccess = (res) => {
+    console.log("Login success ! current user : ", res.profileObj);
+    localStorage.setItem("userInputs", JSON.stringify(res.profileObj));
+    navigate("/Home");
+  };
+
+  const onFailure = (res) => {
+    console.log("Login Failed ! res: ", res);
+  };
   return (
     <>
       <div className="half ">
@@ -40,6 +65,15 @@ const SingnUp = () => {
                 <div className="form-block">
                   <div className="text-center mb-5">
                     <h3>SIGN UP</h3>
+                  </div>
+                  <div className="text-center mb-3">
+                    <GoogleLogin
+                      clientId={client_id}
+                      buttonText="Sign up with google"
+                      onSuccess={onSuccess}
+                      onFailure={onFailure}
+                      cookiePolicy={"single_host_origin"}
+                    />
                   </div>
                   <form action="#" method="post" onSubmit={handleSubmit}>
                     {/* Your login form fields */}
@@ -131,14 +165,7 @@ const SingnUp = () => {
                       password does not match
                     </span>
 
-                    <div className="d-sm-flex mb-5 align-items-center">
-                      <span className="ml-auto">
-                        <a href="#" className="forgot-pass">
-                          Forgot Password
-                        </a>
-                      </span>
-                    </div>
-                    <button className="uiverse-btn" type="submit">
+                    <button className="uiverse-btn mt-5" type="submit">
                       <span className="hover-underline-animation">
                         {" "}
                         Sign up
