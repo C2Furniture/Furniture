@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <>
       <div className="container-fluid mt-5">
-        <div className="card bg-white">
+        <div className="card bg-white p-5">
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-4 col-xs-4">
               <div className="footer-text footerUl">
@@ -18,8 +18,7 @@ const Footer = () => {
                   <h1 className="font-weight-bold mr-2 px-3"> COZY </h1>
                 </div>
                 <p className="card-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Commodi non pariatur numquam animi nam at impedit odit nisi.
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like
                 </p>
                 <div className="social mt-2 mb-3 ">
                   <a href="" className="m-1">
@@ -38,8 +37,8 @@ const Footer = () => {
             <div className="col-md-2 col-sm-2 col-xs-2"></div>
 
             <div className="col-md-2 col-sm-2 col-xs-2">
-              <h6 className="heading">Services</h6>
-              <ul className="card-text footerUl">
+              <h6 className="headingText">Services</h6>
+              <ul className="card-text footerUl m-0 p-0">
                 <li>IT Consulting</li>
                 <li>Development</li>
                 <li>Cloud</li>
@@ -47,8 +46,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-md-2 col-sm-2 col-xs-2">
-              <h6 className="heading">Industries</h6>
-              <ul className="card-text footerUl">
+              <h6 className="headingText">Industries</h6>
+              <ul className="card-text footerUl m-0 p-0">
                 <li>Finance</li>
                 <li>Public Sector</li>
                 <li>Smart Office</li>
@@ -57,7 +56,7 @@ const Footer = () => {
             </div>
             <div className="col-md-2 col-sm-2 col-xs-2">
               <h6 className="heading">Company</h6>
-              <ul className="card-text footerUl">
+              <ul className="card-text footerUl m-0 p-0">
                 <li>About Us</li>
                 <li>Blog</li>
                 <li>Contact</li>

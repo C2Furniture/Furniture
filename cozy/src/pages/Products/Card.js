@@ -25,7 +25,7 @@ function Card(props) {
   const { dataCard,updateValue } = useContext(DataCardContext)
   function handlecard(index) {
     updateValue(filteredData[index])
-    // navigate("/Home");
+    navigate("/prodect");
   }
 
   return (
