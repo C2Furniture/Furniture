@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { SidebarContext } from "../contexts/SidebarContext";
+import { CartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
+import { BsFillCartFill } from "react-icons/bs";
+
 import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
@@ -12,6 +16,8 @@ const Navbar = () => {
   const [showSideMenu, setShowSideMenu] = useState(false);
 
   const handleToggleSideMenu = () => setShowSideMenu(!showSideMenu);
+  const { isOpen, setIsOpen } = useContext(SidebarContext);
+  const { itemAmount } = useContext(CartContext);
 
   return (
     <>
@@ -68,14 +74,18 @@ const Navbar = () => {
             </div>
 
             <div className="d-flex align-items-center">
-              <Link className="text-reset me-3" to="/Cart">
-                <AiOutlineShoppingCart />
-              </Link>
-              <Link className="text-reset me-3" to="">
-                {" "}
-                <AiOutlineHeart />
-              </Link>
-              <Link className="loginLink nav-link" to="/Login">
+              {/* cart */}
+                <div
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="cursor-pointer d-flex position-relative"
+                >
+                  <BsFillCartFill className="text-2xl" />
+                  <div className=" position-absolute right-1 bottom-2 fs-12 w-20 h-20 text-white d-flex justify-content-center align-items-center">
+                    {itemAmount}
+                  </div>
+                
+              </div>
+              <Link className="loginLink nav-link " to="/Login">
                 Login
               </Link>
             </div>
