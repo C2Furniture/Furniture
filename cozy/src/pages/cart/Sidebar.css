@@ -1,4 +1,8 @@
 .ahmad {
   z-index: 100;
-  background-color: aqua; 
+  background-color: aqua;
+}
+
+.cartCount {
+  color: #debc13;
 }

@@ -6,110 +6,48 @@ body {
 
 .about1 {
   background: url("./Images/room8.jpg") center no-repeat;
-  font-family: 'Alexandria', sans-serif;
+  font-family: "Alexandria", sans-serif;
   background-size: cover;
-  width: 988px;
-  height: 990px;
-
-
+  width: 27rem;
+  height: 35rem;
   overflow: hidden;
-  float: right;
+  float: left;
 }
 
 section .row {
   margin: 0px 0px 0px 0px;
-
 }
 
 .services {
-  margin-top: 183px;
   text-align: left;
-  padding: 22px;
-
-
 }
 
-.services p ,.worksP, .card-group p {
-
-  text-align: center;
-  color: rgb(116, 113, 113);
-
-  font-size: 32px;
-  font-weight: bold;
+.services p,
+.card-group p {
+  font-size: 20px;
+  color: rgb(52, 52, 52);
 }
 
-
-
-/* button {
-
-  background-color: orange;
-
-  border: 0 solid white;
-  box-sizing: border-box;
-  color: rgb(255, 254, 252);
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  line-height: 1;
-
-  text-align: center;
-  text-decoration-thickness: auto;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
-  box-shadow: 22px 11px 22px rgba(121, 123, 125, 0.25);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-} */
-
-.button-8 {
-  margin-top: 34px;
-  font-size: 23px;
-  font-weight: 700;
-  width: 150px;
-  height: 54px;
-  background-color: orange;
-
-  border: 0 solid white;
-  box-sizing: border-box;
-  color: rgb(255, 254, 252);
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  line-height: 1;
-
-  text-align: center;
-  text-decoration-thickness: auto;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
-  box-shadow: 22px 11px 22px rgba(121, 123, 125, 0.25);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+.worksP {
+  color: aliceblue;
 }
-
 .icon0 {
   display: flex;
   justify-content: center;
-
   color: rgb(31, 31, 32);
 }
 
 .icon1 {
-  padding-right: 32px;
   font-size: 25px;
   font-weight: bold;
-  margin-top: 22px;
 }
 
 .icon2 {
-  margin-top: 181px;
   width: 69px;
   height: 68px;
-
-
 }
 
 .room2 {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -126,8 +64,6 @@ section .row {
 }
 
 .Works {
-
-  margin-top: 54px;
   color: white;
   font-weight: bold;
   font-size: 45px;
@@ -143,8 +79,6 @@ section .row {
 }
 
 .Work {
-
-
   font-weight: bold;
   font-size: 24px;
   text-align: left;
@@ -156,21 +90,68 @@ section .row {
 
   font-weight: bold;
   font-size: 24px;
-
 }
 
 .imgAbout {
   display: block;
-  width: 112px;
-  height: 420px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
- .about .card {
+.about .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 22px;
-
 }
-.about .card{
-  padding: 0;
+
+.cta {
+  border: none;
+  background: none;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.card p {
+  font-size: 14px;
 }

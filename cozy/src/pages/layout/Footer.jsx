@@ -6,6 +6,7 @@ import {
   AiOutlineFacebook,
   AiFillTwitterCircle,
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -18,7 +19,10 @@ const Footer = () => {
                   <h1 className="font-weight-bold mr-2 px-3"> COZY </h1>
                 </div>
                 <p className="card-text">
-                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like
+                  A wonderful serenity has taken possession of my entire soul,
+                  like these sweet mornings of spring which I enjoy with my
+                  whole heart. I am alone, and feel the charm of existence in
+                  this spot, which was created for the bliss of souls like
                 </p>
                 <div className="social mt-2 mb-3 ">
                   <a href="" className="m-1">
@@ -57,9 +61,16 @@ const Footer = () => {
             <div className="col-md-2 col-sm-2 col-xs-2">
               <h6 className="heading">Company</h6>
               <ul className="card-text footerUl m-0 p-0">
-                <li>About Us</li>
+                {" "}
+                <Link to="/aboutus" className="footerLink">
+                  {" "}
+                  <li> About Us</li>
+                </Link>
                 <li>Blog</li>
-                <li>Contact</li>
+                <Link to="/contactus" className="footerLink">
+                  {" "}
+                  <li> Contact</li>
+                </Link>
                 <li>Join Us</li>
               </ul>
             </div>
