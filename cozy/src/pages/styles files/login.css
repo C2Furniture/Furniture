@@ -21,7 +21,7 @@ h2 {
 }
 
 .half,
-.half .container>.row {
+.half .container > .row {
   height: 100vh;
   min-height: 700px;
 }
@@ -46,7 +46,6 @@ h2 {
 }
 
 @media (max-width: 1199.98px) {
-
   .half .contents,
   .half .bg {
     width: 100%;
@@ -146,8 +145,8 @@ h2 {
   pointer-events: none;
 }
 
-.input-container input:focus~.label,
-.input-container input:valid~.label {
+.input-container input:focus ~ .label,
+.input-container input:valid ~ .label {
   top: -20px;
   font-size: 16px;
   color: #7f7c7c;
@@ -164,8 +163,8 @@ h2 {
   transition: all 0.3s ease;
 }
 
-.input-container input:focus~.underline,
-.input-container input:valid~.underline {
+.input-container input:focus ~ .underline,
+.input-container input:valid ~ .underline {
   transform: scaleX(1);
 }
 
@@ -233,16 +232,16 @@ h2 {
   display: none;
 }
 
-input:invalid~.errorMessages {
+input:invalid ~ .errorMessages {
   display: inline-block;
   visibility: visible;
 }
 
 .uiverse-btn {
-  --btn_bg: #c28678a2;
+  --btn_bg: #0a1d37;
   --btn_hover_bg: #fff;
   --btn_border_width: 0.125em;
-  --btn_border_color: #3f3f3f;
+  --btn_border_color: #ffffff;
   --btn_border_radius: 0.1875em;
   --btn_text_color: var(--btn_hover_bg);
   --btn_hover_text_color: var(--btn_border_color);

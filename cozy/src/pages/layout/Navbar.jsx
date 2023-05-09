@@ -89,21 +89,21 @@ const Navbar = () => {
 
           <div className="d-flex align-items-center ">
             {/* cart */}
-                <div
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="cursor-pointer d-flex position-relative"
-                >
-                  <BsFillCartFill className="text-2xl w-100" />
-                  <div className=" position-absolute right-2 bottom-2 fs-12 w-20 h-20 text-white d-flex justify-content-center align-items-center">
-                    {itemAmount}
-                  </div>
-                  </div>
+            <div
+              onClick={() => setIsOpen(!isOpen)}
+              className="cursor-pointer d-flex position-relative"
+            >
+              <BsFillCartFill className="cartIcon" />
+              <div className=" position-absolute right-2 bottom-2 fs-12 w-50 h-75 d-flex justify-content-center align-items-center cartCount rounded-circle">
+                {itemAmount}
+              </div>
+            </div>
 
             {savedUserInputs ? (
               <>
                 {/* <span>{userName}</span> */}
                 <button
-                  className="logoutBtn"
+                  className="logoutBtn "
                   onClick={() => {
                     handleLogout();
                   }}
