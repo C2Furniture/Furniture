@@ -20,7 +20,7 @@ class Checkout extends React.Component {
           
           <br></br>
           
-            <div className="col-md-8 order-md-2 align-content-center">
+            <div className="order-md-2 align-content-center">
               <h4 className="mb-3">Billing address</h4>
               <form className="needs-validation" >
                 <div className="row" align-content-center>
