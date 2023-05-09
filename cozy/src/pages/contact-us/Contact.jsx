@@ -1,8 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./contact.css";
+import  { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_w486woi', 'template_wqlf8vs', form.current, 'FclbcymguVw3zh1fbz`z ')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   return (
     <div class="contact__form container-fluid p-5">
       <div class=" row justify-content-center mt-4">
@@ -17,7 +32,7 @@ const Contact = () => {
                     <p class="mb-4 text-muted">Split layout contact form</p>
                   </div>
 
-                  <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                  <form id="contactForm" data-sb-form-api-token="API_TOKEN" ref={form} onSubmit={sendEmail}>
                     <div class="form-floating mb-3">
                       <input
                         class="form-control"
@@ -25,6 +40,7 @@ const Contact = () => {
                         type="text"
                         placeholder="Name"
                         data-sb-validations="required"
+                         name="from_name"
                       />
                       <label for="name">Name</label>
                       <div
@@ -39,9 +55,10 @@ const Contact = () => {
                       <input
                         class="form-control"
                         id="emailAddress"
-                        type="email"
+                       
                         placeholder="Email Address"
                         data-sb-validations="required,email"
+                        type="email" name="user_email"
                       />
                       <label for="emailAddress">Email Address</label>
                       <div
@@ -65,6 +82,7 @@ const Contact = () => {
                         type="text"
                         placeholder="Message"
                         data-sb-validations="required"
+                        name="message"
                       ></textarea>
                       <label for="message">Message</label>
                       <div
@@ -97,6 +115,7 @@ const Contact = () => {
                         className="btn btn-primary btn-lg disabled"
                         id="submitButton"
                         type="submit"
+                         value="Send"
                       >
                         Submit
                       </motion.button>

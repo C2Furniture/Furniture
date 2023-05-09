@@ -45,7 +45,12 @@ const Prodect = () => {
   const { addToCart } = useContext(CartContext)
   // const [addToCart, addToCart] = useState(dataCard);
   function handleAddCart(e) {
-    addToCart()
+    let id = oneobj.id
+    let title = oneobj.name
+    let category=oneobj.category
+    let image = oneobj.img
+    let price = oneobj.price
+    addToCart({id,image,category,title,price},id)
     e.preventDefault();
     console.log(oneobj);
     // let numItem = e.target.numItem.value;
