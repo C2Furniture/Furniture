@@ -47,20 +47,12 @@ section .row {
   height: 68px;
 }
 
-.room2 {
+.ourWorksSection {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   height: auto;
-  background-color: rgb(19, 19, 19);
-}
-
-.room3 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  height: 299px;
-  background-color: rgb(19, 19, 19);
+  background-color: #0a1d37;
 }
 
 .Works {

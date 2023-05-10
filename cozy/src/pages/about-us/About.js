@@ -3,7 +3,6 @@ import "./About.css";
 import Malak from "./Images/malak.jpeg";
 import abood from "./Images/246831204_4478374352277316_8270618522181539930_n.jpg";
 import imgTeam from "./Images/Portrait_Placeholder.png";
-
 import { FaCarSide, FaHandHoldingUsd, FaMedal } from "react-icons/fa";
 
 const About = () => {
@@ -70,7 +69,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="room2">
+      <section className="ourWorksSection">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 ">
@@ -116,7 +115,6 @@ const About = () => {
             <img className="card-img-top imgAbout" src={imgTeam} title="img" />
             <div className="card-body">
               <h5 className="card-title">Hind Hudeib</h5>
-              <p className="card-text">alfarwanmalak@gmail.com</p>
             </div>
           </div>
           <div className="card rounded">

@@ -1,12 +1,70 @@
 import React from "react";
 import "../styles files/login.css";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
+import { useNavigate } from "react-router-dom";
+
 const client_id =
   "928488147008-b5nobd5nfm448iuodhlqg46tor6c7htm.apps.googleusercontent.com";
 const SingnUp = () => {
+  const [fullName, setFullName] = useState("");
+  function handleNameChange(event) {
+    const { value } = event.target;
+    setFullName(value);
+  }
+
+  // check email
+  const [email, setEmail] = useState("");
+  const [isEmailValid, setEmailError] = useState(false);
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    setEmail(value);
+    setEmailError(validateEmail(value));
+  };
+  const validateEmail = (email) => {
+    // Regular expression to match email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // check password
+  const [password, setPassword] = useState("");
+  const [isValidPass, setPasswordError] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isValidConfirm, setIsConfirmValid] = useState(false);
+
+  const handlePassword = (event) => {
+    const { value } = event.target;
+    setPassword(value);
+    setPasswordError(validatePassword(value));
+  };
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  // check confirm password
+  const handleConfirmPass = (event) => {
+    const { value } = event.target;
+    setConfirmPassword(value);
+    setIsConfirmValid(value === password);
+  };
+
+  const navigate = useNavigate();
+
+  function handleSubmit(event) {
+    window.localStorage.clear();
+    event.preventDefault();
+    const userInputs = {
+      user_name: fullName,
+      email: email,
+      password: password,
+    };
+    window.localStorage.setItem("user", JSON.stringify(userInputs));
+    navigate("/Home");
+  }
   useEffect(() => {
     function start() {
       gapi.client
@@ -20,31 +78,6 @@ const SingnUp = () => {
     }
     gapi.load("client:auth2", start);
   });
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token :" + response.credential);
-  }
-
-  const navigate = useNavigate(); // access to the history object
-  const [userInputs, setUserInputs] = useState({
-    userName: "",
-    userEmail: "",
-    userPass: "",
-    userConfirmPass: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    localStorage.setItem("userInputs", JSON.stringify(userInputs));
-    const savedUserInputs = JSON.parse(localStorage.getItem("userInputs"));
-    console.log(savedUserInputs);
-    navigate("/Home"); // redirect to the home page
-  };
-
-  const onChange = (e) => {
-    setUserInputs({ ...userInputs, [e.target.name]: e.target.value });
-  };
-
-  console.log(userInputs);
   const onSuccess = (res) => {
     console.log("Login success ! current user : ", res.profileObj);
     localStorage.setItem("userInputs", JSON.stringify(res.profileObj));
@@ -59,7 +92,7 @@ const SingnUp = () => {
       <div className="half ">
         <div className="bg order-1 order-md-2 bgImage"></div>
         <div className="contents order-2 order-md-1">
-          <div className="container pt-5 mb-5">
+          <div className="container pt-5">
             <div className="row align-items-center justify-content-center">
               <div className="col-md-6">
                 <div className="form-block">
@@ -78,92 +111,95 @@ const SingnUp = () => {
                   <form action="#" method="post" onSubmit={handleSubmit}>
                     {/* Your login form fields */}
 
-                    <div
-                      id="g_id_onload"
-                      data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                      data-login_uri="https://your.domain/your_login_endpoint"
-                      data-your_own_param_1_to_login="any_value"
-                      data-your_own_param_2_to_login="any_value"
-                    ></div>
                     <div className="input-container ">
                       <input
-                        onChange={onChange}
-                        name="userName"
+                        onChange={handleNameChange}
+                        value={fullName}
+                        name="fullName"
                         type="text"
-                        id="userName"
+                        id="fullName"
                         required
-                        pattern="[A-Za-z]{5,20}"
                         className="form-input"
                       />
-                      <label htmlFor="userName" className="label">
+                      <label htmlFor="fullName" className="label">
                         Name
                       </label>
                       <div className="underline"></div>
                     </div>
-                    <span className="errorMessages">
-                      Name must be at least 5 letters and not contain any
-                      special characters
-                    </span>
 
                     <div className="input-container mt-5 mb-1">
                       <input
-                        onChange={onChange}
-                        name="userEmail"
+                        onChange={handleEmailChange}
+                        value={email}
+                        name="email"
                         type="email"
-                        id="userEmail"
+                        id="email"
                         required
                         className="form-input"
                       />
-                      <label htmlFor="userEmail" className="label">
+                      <label htmlFor="email" className="label">
                         Email
                       </label>
                       <div className="underline"></div>
                     </div>
-                    <span className="errorMessages">
-                      Use a valid email address
-                    </span>
+                    <div>
+                      {!isEmailValid && email !== "" && (
+                        <p className="errorMessages">
+                          Please enter a valid email address.
+                        </p>
+                      )}
+                    </div>
 
                     <div className="input-container mt-5 mb-1">
                       <input
-                        onChange={onChange}
-                        name="userPass"
+                        onChange={handlePassword}
+                        value={password}
+                        name="password"
                         type="password"
-                        id="userPass"
+                        id="password"
                         required
                         className="form-input"
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
                         autoComplete="on"
                       />
-                      <label htmlFor="userPass" className="label">
+                      <label htmlFor="password" className="label">
                         Password
                       </label>
                       <div className="underline"></div>
                     </div>
-                    <span className="errorMessages ml-5">
-                      password contains at least eight characters, including at
-                      least one number and includes both lower and uppercase
-                      letters and special characters
-                    </span>
-
+                    <div></div>
+                    <div>
+                      {!isValidPass && password !== "" && (
+                        <p className="errorMessages">
+                          Please enter a password that is at least 8 characters
+                          long and contains at least one lowercase letter, one
+                          uppercase letter, and one number.
+                        </p>
+                      )}
+                    </div>
                     <div className="input-container mt-5 mb-1">
                       <input
-                        onChange={onChange}
+                        onChange={handleConfirmPass}
+                        value={confirmPassword}
                         name="userConfirmPass"
                         type="password"
                         id="userConfirmPass"
                         required
                         className="form-input"
-                        pattern={userInputs.userPass}
                         autoComplete="on"
                       />
                       <label htmlFor="userConfirmPass" className="label">
                         Confirm Password
                       </label>
+
                       <div className="underline"></div>
                     </div>
-                    <span className="errorMessages">
-                      password does not match
-                    </span>
+                    <div>
+                      {!isValidConfirm && confirmPassword !== "" && (
+                        <p className="errorMessages">
+                          The passwords do not match.
+                        </p>
+                      )}
+                    </div>
 
                     <button className="uiverse-btn mt-5" type="submit">
                       <span className="hover-underline-animation">
@@ -180,7 +216,7 @@ const SingnUp = () => {
                         <path
                           transform="translate(30)"
                           d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                          data-name="Path 10"
+                          userInputs-name="Path 10"
                           id="Path_10"
                         ></path>
                       </svg>

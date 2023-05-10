@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="container-fluid mt-5">
+      <div className="container-fluid">
         <div className="card bg-white p-5">
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-4 col-xs-4">

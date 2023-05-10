@@ -12,10 +12,6 @@ a:hover {
   border-radius: 2%;
 }
 
-.content {
-  padding: 7rem 0;
-}
-
 h2 {
   font-size: 20px;
 }
@@ -26,6 +22,9 @@ h2 {
   min-height: 700px;
 }
 
+.half {
+  height: 100%;
+}
 .half .bg {
   height: 200px;
 }
@@ -295,4 +294,10 @@ input:invalid ~ .errorMessages {
 .uiverse-btn:hover::before {
   transform: scaleX(0.75);
   opacity: 0;
+}
+
+.errorMessages {
+  display: inline-block;
+  color: #ff3636;
+  font-size: 13px;
 }
