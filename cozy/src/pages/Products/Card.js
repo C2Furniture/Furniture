@@ -3,11 +3,22 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles files/style products/card.css";
 import { DataCardContext } from "./Context";
+import axios from "axios";
 
 function Card(props) {
   const navigate = useNavigate("/");
-  const [data, setData] = useState(products.products);
-  const [filteredData, setFilteredData] = useState(products.products);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  console.log(data);
+
+  useEffect(() => {
+    axios.get("https://mocki.io/v1/2bdea504-cb31-41bd-bee6-d03426b2c97b")
+    .then((response) => {
+      setData(response.data.products);
+      setFilteredData(response.data.products);
+      console.log(response.data.products);
+    });
+  }, []);
 
   const checked = props.checked;
   useEffect(() => {

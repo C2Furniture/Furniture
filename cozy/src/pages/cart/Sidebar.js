@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -9,10 +9,15 @@ import CartItem from "./CartItem";
 import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import "../cart/Sidebar.css";
+import { useState } from "react";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
   const { cart, clearCart, itemAmount, total } = useContext(CartContext);
+
+  const[user,setuser]= useState() 
+  useEffect(()=>{setuser(JSON.parse(localStorage.getItem("userInputs")))},[])
+  
 
   return (
     <div
@@ -43,17 +48,18 @@ const Sidebar = () => {
           </div>
           <div
             onClick={clearCart}
-            className="cursor-pointer py-3 bg-danger text-light w-25 h-100 d-flex justify-content-center align-items-center fs-6"
+            className="cursor-pointer py-3 bg-danger text-light w-25 h-100 d-flex justify-content-center align-items-center fs-6 mb-1"
           >
-            <FiTrash2 />
+            <FiTrash2  />
           </div>
         </div>
-        <Link
+        { user!=null ? (<>      <Link
           to={"/Checkout"}
           className="bg-primary text-white font-weight-medium d-flex justify-content-center align-items-center p-3 w-100"
         >
           Checkout
-        </Link>
+        </Link> </>):(<><Link to={"/Login"}className="bg-primary text-white font-weight-medium d-flex justify-content-center align-items-center p-3 w-100">Login</Link></>)}
+  
       </div>
     </div>
   );
