@@ -69,7 +69,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="room2">
+      <section className="ourWorksSection">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 ">
