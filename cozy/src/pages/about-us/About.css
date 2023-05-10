@@ -52,7 +52,7 @@ section .row {
   flex-wrap: wrap;
   justify-content: space-between;
   height: auto;
-  background-color: rgb(19, 19, 19);
+  background-color: #0a1d37;
 }
 
 .room3 {

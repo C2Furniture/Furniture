@@ -27,21 +27,26 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
+  const savedUserInputs = JSON.parse(localStorage.getItem("userInputs"));
+  const [IsFound, setIsFound] = useState(false);
+
+  // check if email and password === to email and password in local storage
+  function checkAccount(savedUserInputs) {
+    if (
+      userInputs.email === savedUserInputs.email &&
+      userInputs.password === savedUserInputs.password
+    ) {
+      setIsFound(true);
+    } else {
+      setIsFound(false);
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const savedUserInputs = JSON.parse(localStorage.getItem("userInputs"));
-
-    // Check if user inputs match with saved user inputs
-    if (
-      userInputs.userEmail === savedUserInputs.userEmail &&
-      userInputs.userPass === savedUserInputs.userPass
-    ) {
-      // If match, redirect to home page
-      navigate("/Home");
-    } else {
-      alert("Invalid email or password. Please try again.");
-    }
+    console.log(userInputs);
+    checkAccount(userInputs);
+    IsFound ? navigate("/Home") : alert("email or password are inccorect");
   };
 
   const onChange = (e) => {
@@ -85,6 +90,7 @@ const Login = () => {
                     <div className="input-container mt-5 mb-5">
                       <input
                         onChange={onChange}
+                        value={userInputs.email}
                         name="userEmail"
                         type="email"
                         id="userEmail"
@@ -100,6 +106,7 @@ const Login = () => {
                     <div className="input-container mt-5 mb-5">
                       <input
                         onChange={onChange}
+                        value={userInputs.password}
                         type="password"
                         name="userPass"
                         id="userPass"
