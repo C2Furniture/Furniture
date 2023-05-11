@@ -37,51 +37,35 @@ section .row {
   color: rgb(31, 31, 32);
 }
 
-.icon1 {
-  font-size: 25px;
+.ourValueIcon {
+  width: 3rem;
+  height: 3rem;
+  color: #68625d;
+}
+.ourValues {
+  font-size: 1rem;
+  color: #4f4c4c;
+  margin-top: 1rem;
   font-weight: bold;
 }
-
-.icon2 {
-  width: 69px;
-  height: 68px;
-}
-
 .ourWorksSection {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   height: auto;
-  background-color: #0a1d37;
+  background-color: #ece6e2;
 }
 
-.Works {
-  color: white;
-  font-weight: bold;
-  font-size: 45px;
+.ourWorkHeader {
+  color: rgb(49, 46, 46);
   text-align: center;
 }
 
-.Works1 {
+.ourWorkP {
   margin-top: 0px;
-  color: rgb(244, 238, 238);
-  font-weight: bold;
-  font-size: 45px;
-  float: left;
-}
-
-.Work {
-  font-weight: bold;
-  font-size: 24px;
-  text-align: left;
-  margin-left: 20px;
-}
-
-.Work1 {
-  color: rgb(251, 250, 250);
-
-  font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
+  color: rgb(68, 68, 68);
+  text-align: center;
 }
 
 .imgAbout {

@@ -36,3 +36,13 @@
     color: #fff;
     border-radius: 50px;
 }
+
+.price__card{
+    color: #FF6F00;
+    font-weight: bold;
+}
+.card__container{
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 0 20px;
+    /* width: ; */
+}

@@ -1,8 +1,14 @@
 .ahmad {
   z-index: 100;
   background-color: aqua;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 .cartCount {
   color: #debc13;
+}
+.btn-checkout{
+  background-color: #E2D6C6;
 }

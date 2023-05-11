@@ -53,7 +53,8 @@ function Card(props) {
               >
                 <img src={element.img} />
                 <h3>{element.name}</h3>
-                <p>{element.price} JD</p>
+                <p>{element.category}</p>
+                <p className="price ">{element.price} JD</p>
               </div>
             </>
           );

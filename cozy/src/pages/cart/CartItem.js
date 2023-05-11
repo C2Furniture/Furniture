@@ -11,7 +11,7 @@ const CartItem = ({ item }) => {
   const { id, title, image, price, amount } = item;
 
   return (
-    <div className="d-flex py-2 px-lg-6 border-bottom border-gray-200 w-100 fw-light text-gray-500 ms-4">
+    <div className="d-flex py-2 px-lg-6 border-bottom border-gray-200 w-100 fw-light text-gray-500 ">
       <div className="w-100 min-height-150 d-flex align-items-center ms-4">
         {/* image */}
         <Link to={`/product/${id}`}>
@@ -21,12 +21,12 @@ const CartItem = ({ item }) => {
           {/* title and remove icon */}
           <div className="d-flex justify-content-between mb-2">
             {/* title */}
-            <Link
+            <div
               to={`/product/${id}`}
-              className="text-sm text-uppercase fw-medium max-w-240 text-primary underline:hover"
+              className="text-sm text-uppercase fw-medium max-w-240 font-weight-bold underline:hover mx-2"
             >
               {title}
-            </Link>
+            </div>
             {/* remove icon */}
             <div
               onClick={() => removeFromCart(id)}
@@ -37,7 +37,7 @@ const CartItem = ({ item }) => {
           </div>
           <div className="d-flex gx-2 h-36 text-sm">
             {/* quantity */}
-            <div className="d-flex flex-1 max-w-100 align-items-center h-100 border text-primary fw-medium">
+            <div className="d-flex flex-1 max-w-100 align-items-center h-100 border text-primary fw-medium mx-2">
               <div onClick={()=>decreaseAmount(id)} className="h-100 d-flex flex-1 justify-content-center align-items-center cursor-pointer">
                 <IoMdRemove />
               </div>

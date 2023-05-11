@@ -9,7 +9,7 @@ const Contact = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     emailjs.sendForm('service_w486woi', 'template_wqlf8vs', form.current, 'FclbcymguVw3zh1fbz`z ')
       .then((result) => {
@@ -28,8 +28,8 @@ const Contact = () => {
                 <div class="col-sm-6 d-none d-sm-block bg-image"></div>
                 <div class="col-sm-6 p-4">
                   <div class="text-center">
-                    <div class="h3 fw-light">Contact Form</div>
-                    <p class="mb-4 text-muted">Split layout contact form</p>
+                    <div class="h3 fw-light mb-4">Contact Form</div>
+                    {/* <p class="mb-4 text-muted">Split layout contact form</p> */}
                   </div>
 
                   <form id="contactForm" data-sb-form-api-token="API_TOKEN" ref={form} onSubmit={sendEmail}>
@@ -111,11 +111,11 @@ const Contact = () => {
 
                     <div class="d-grid">
                       <motion.button
-                        whileHover={{ scale: 1.2 }}
-                        className="btn btn-primary btn-lg disabled"
+                        whileHover={{ scale: 0.97 }}
+                        className="btn submit-b btn-lg "
                         id="submitButton"
                         type="submit"
-                         value="Send"
+                         value="Submit"
                       >
                         Submit
                       </motion.button>

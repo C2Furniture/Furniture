@@ -10,19 +10,18 @@ import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import "../cart/Sidebar.css";
 import { useState } from "react";
+import { DataCardContext } from "../Products/Context";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
   const { cart, clearCart, itemAmount, total } = useContext(CartContext);
 
-  const[user,setuser]= useState() 
-  useEffect(()=>{setuser(JSON.parse(localStorage.getItem("userInputs")))},[])
-  
+  const ctx = useContext(DataCardContext);
 
   return (
     <div
       className={`${isOpen ? "end-0 ahmad" : "d-none  "} 
-    "w-100 bg-white position-absolute vh-100 shadow-lg md:w-35 top-0  col-lg-4 d-flex flex-column md:w-35vw lg:w-40vw xl:max-width-xl-75 px-lg-4 py-3 transition-all duration-300 ahmad"`}
+    "w-100 bg-white  vh-100 shadow-lg md:w-35 top-0  col-lg-4 d-flex flex-column md:w-35vw lg:w-40vw xl:max-width-xl-75 px-lg-4 py-3 transition-all duration-300 ahmad"`}
     >
       <div className="d-flex align-items-center justify-content-between border-bottom py-3">
         <div className="text-uppercase font-bold ">
@@ -35,7 +34,7 @@ const Sidebar = () => {
           <IoIosCloseCircleOutline className="text-3xl" />
         </div>
       </div>
-      <div className="flex flex-column gap-2 h-100 border-bottom overflow-auto overflow-x-hidden">
+      <div className="flex flex-column gap-2 h-100 border-bottom  overflow-x-hidden">
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
@@ -48,18 +47,31 @@ const Sidebar = () => {
           </div>
           <div
             onClick={clearCart}
-            className="cursor-pointer py-3 bg-danger text-light w-25 h-100 d-flex justify-content-center align-items-center fs-6 mb-1"
+            className="cursor-pointer py-3  text-light w-25 h-100 d-flex justify-content-center align-items-center fs-6 mb-1"
           >
-            <FiTrash2  />
+            <FiTrash2 style={{ color: "red" }} />
           </div>
         </div>
-        { user!=null ? (<>      <Link
-          to={"/Checkout"}
-          className="bg-primary text-white font-weight-medium d-flex justify-content-center align-items-center p-3 w-100"
-        >
-          Checkout
-        </Link> </>):(<><Link to={"/Login"}className="bg-primary text-white font-weight-medium d-flex justify-content-center align-items-center p-3 w-100">Login</Link></>)}
-  
+        {ctx.user ? (
+          <>
+            {" "}
+            <Link
+              to={"/Checkout"}
+              className=" text-white font-weight-medium d-flex justify-content-center align-items-center p-3 w-100 btn-checkout"
+            >
+              Checkout
+            </Link>{" "}
+          </>
+        ) : (
+          <>
+            <Link
+              to={"/Login"}
+              className=" text-white font-weight-medium d-flex justify-content-center align-items-center p-3 w-100 btn-checkout"
+            >
+              Login
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

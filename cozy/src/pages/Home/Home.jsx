@@ -36,7 +36,7 @@ const Home = () => {
                 <p className="hero__subtitle">Trending Product in 2023</p>
                 <h2>Make Your Interior More Minimalistic & Modern</h2>
                 <p>
-                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like
+                  A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like
                 </p>
                 <motion.button whileTap={{ scale: 1.2 }} className="buy__btn">
                   <Link to="/products" className="shopBtn">SHOP NOW</Link>
@@ -51,14 +51,23 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      <Services />
-      <section className="trending__products">
+      <section className="text-center services__title">
         <Container>
           <Row>
+
+            <Col lg="12"> Services</Col>
+            <Col><Services /></Col>
+
+          </Row>
+        </Container>
+      </section>
+      <section className="trending__products">
+        <Container>
+          <Row className="justify-content-center">
             <Col lg="12" className="text-center">
               <h2 className="section__title">Trending Products</h2>
             </Col>
-            <ProductsList data={trendingProducts} />
+            <ProductsList className="card__css" data={trendingProducts} />
           </Row>
         </Container>
       </section>

@@ -1,7 +1,7 @@
 import Footer from "./pages/layout/Footer";
 import Navbar from "./pages/layout/Navbar";
 import "./pages/styles files/App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import AboutUs from "./pages/about-us/About";
 import Products from "./pages/Products/Products";
 import ContactUs from "./pages/contact-us/Contact.jsx";
@@ -16,24 +16,25 @@ import DataCardProvider from "./pages/Products/Context";
 function App() {
   return (
     <>
-      <Navbar />
+      <BrowserRouter>
+        <DataCardProvider>
+          <Navbar />
 
-      <DataCardProvider>
-        <Routes>
-          <Route path="/Home" element={<Home />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contactus" element={<ContactUs />} />
-         <Route path="/prodect" element={<Prodect />} />
-          <Route path="/Checkout" element={<Checkout />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Login" element={<Login />} />
-        </Routes>
-        <Sidebar />
-      </DataCardProvider>
+          <Routes>
+            <Route path="/Home" element={<Home />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/prodect" element={<Prodect />} />
+            <Route path="/Checkout" element={<Checkout />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/Login" element={<Login />} />
+          </Routes>
+          <Sidebar />
 
-
-      <Footer />
+          <Footer />
+        </DataCardProvider>
+      </BrowserRouter>
     </>
   );
 }

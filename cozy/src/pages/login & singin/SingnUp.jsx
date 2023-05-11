@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles files/login.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import { useNavigate } from "react-router-dom";
-
+import { DataCardContext } from "../Products/Context"
 const client_id =
   "928488147008-b5nobd5nfm448iuodhlqg46tor6c7htm.apps.googleusercontent.com";
+
+  
 const SingnUp = () => {
+  const ctx = useContext(DataCardContext)
   const [fullName, setFullName] = useState("");
   function handleNameChange(event) {
     const { value } = event.target;
@@ -63,7 +66,9 @@ const SingnUp = () => {
       password: password,
     };
     window.localStorage.setItem("user", JSON.stringify(userInputs));
+    ctx.refresh();
     navigate("/Home");
+
   }
   useEffect(() => {
     function start() {

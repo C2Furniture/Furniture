@@ -2,13 +2,17 @@
     background: #007bff;
     background: linear-gradient(to right, #e7d7baac, #F1EFEE);
     height: 700px;
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
 
 }
 
 .bg-image {
     background-image: url(../Home/images/hero-img.png);
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.contact__form .submit-b{
+    background-color: #EBE2DA;
 }

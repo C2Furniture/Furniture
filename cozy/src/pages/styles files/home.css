@@ -74,3 +74,13 @@
 .shopBtn {
   color: #ffffff;
 }
+
+.services__title{
+  font-size: 2rem;
+
+  font-weight: 600;
+}
+
+.trending__products{
+  box-shadow: 3px 3px 3px;
+}

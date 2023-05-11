@@ -23,8 +23,8 @@ const About = () => {
                   world.
                 </p>
 
-                <button class="cta">
-                  <span class="hover-underline-animation"> Our services</span>
+                <div class="cta">
+                  <span class="hover-underline-animation">Our value</span>
                   <svg
                     viewBox="0 0 46 16"
                     height="10"
@@ -39,31 +39,30 @@ const About = () => {
                       id="Path_10"
                     ></path>
                   </svg>
-                </button>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
+              <div className="container mx-auto mt-5">
+                <div className="row icon0 text-center">
+                  <div className="col-sm-4 col-6 ">
+                    <div className="mt-5 ">
+                      <FaMedal className=" ourValueIcon" />
+                      <p className="ourValues">Quality Product</p>
+                    </div>
+                  </div>
 
-        <div className="container mx-auto mt-5">
-          <div className="row icon0 text-center">
-            <div className="col-sm-4 col-6">
-              <div>
-                <FaMedal className=" icon2" />
-                <h6 className="icon1">Quality Product</h6>
-              </div>
-            </div>
-
-            <div className="col-sm-4 col-6">
-              <div>
-                <FaHandHoldingUsd className=" icon2" />
-                <h6 className="icon1">100% Cash Back</h6>
-              </div>
-            </div>
-            <div className="col-sm-4 col-6">
-              <div>
-                <FaCarSide className=" icon2" />
-                <h6 className="icon1"> Free Delivery</h6>
+                  <div className="col-sm-4 col-6">
+                    <div className="mt-5">
+                      <FaHandHoldingUsd className=" ourValueIcon" />
+                      <p className="ourValues">100% Cash Back</p>
+                    </div>
+                  </div>
+                  <div className="col-sm-4 col-6">
+                    <div className="mt-5">
+                      <FaCarSide className=" ourValueIcon" />
+                      <p className="ourValues"> Free Delivery</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -73,8 +72,13 @@ const About = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 ">
-              <h2 className="Works">Our Works</h2>
-              <p className="worksP text-center">
+              <h2 className="ourWorkHeader">Our Works</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-2 col-md-2 "></div>
+            <div className="col-lg-8 col-md-8 ">
+              <p className="ourWorkP">
                 Cozy is a member of the Otto Group and employs 7,500 associates
                 across Cozy. With over 100 stores and franchise partners in 9
                 countries, we are an international destination for contemporary
@@ -82,14 +86,15 @@ const About = () => {
                 Welcome Life In.
               </p>
             </div>
+            <div className="col-lg-2 col-md-2 "></div>
           </div>
         </div>
       </section>
 
-      <div className="container text-center mt-4">
+      <div className="container text-center mt-4 mb-5 pb-5">
         <h2>Our team</h2>
 
-        <div className="card-group about">
+        <div className="card-group about ">
           <div className="card rounded ">
             <img className="card-img-top imgAbout" src={imgTeam} title="img" />
             <div className="card-body">

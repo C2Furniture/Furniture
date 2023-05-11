@@ -10,30 +10,21 @@ import {
   AiOutlineOrderedList,
 } from "react-icons/ai";
 import "../styles files/navbar.css";
+import { DataCardContext } from "../Products/Context"
 
 const Navbar = () => {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
   const { itemAmount } = useContext(CartContext);
+  const ctx = useContext(DataCardContext)
 
-  // const [userName, setSavedUserName] = useState(null);
-  const [savedUserInputs, setSavedUser] = useState(
-    JSON.parse(localStorage.getItem("userInputs"))
-  );
-
-  // useEffect(() => {
-  //   console.log(savedUserInputs);
-  //   if (savedUserInputs) {
-  //     setSavedUserName(savedUserInputs.userName);
-  //   }
-  // }, [savedUserInputs]);
 
   const [showSideMenu, setShowSideMenu] = useState(false);
 
   const handleToggleSideMenu = () => setShowSideMenu(!showSideMenu);
 
   const handleLogout = () => {
-    localStorage.removeItem("userInputs");
-    setSavedUser(null);
+    localStorage.removeItem("user");
+    ctx.refresh();
   };
 
   return (
@@ -99,7 +90,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            {savedUserInputs ? (
+            {ctx?.user ? (
               <>
                 {/* <span>{userName}</span> */}
                 <button
